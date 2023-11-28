@@ -15,5 +15,5 @@ export default {
       allow: ['.', '..', '../..', '/'],
     },
   },
-  base: "/threejs_point_cloud_visualizer_live/"
+  base: "/threejs_point_cloud_visualizer_live"
 };
