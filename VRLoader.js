@@ -82,7 +82,7 @@ const material = new THREE.MeshPhysicalMaterial({
 })
 
 
-// load a resource
+// load a resource  
 loader.load(
   // resource URL
   "./SaMo_topo_14_downScaled.obj",
@@ -116,13 +116,15 @@ function onWindowResize() {
 // give stats
 const stats = new Stats();
 document.body.appendChild(stats.dom);
-
-document.body.appendChild( VRButton.createButton( renderer ) );
 renderer.xr.enabled = true;
+renderer.xr.setReferenceSpaceType( 'local-floor' );
+document.body.appendChild( VRButton.createButton( renderer ) );
+// renderer.xr.enabled = true;
 
 // animates everything every time
 function animate() {
   requestAnimationFrame(animate);
+  renderer.setAnimationLoop(animate);
   controls.update();
   camera.lookAt(cameraTarget);
   render();
